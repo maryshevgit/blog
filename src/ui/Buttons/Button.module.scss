@@ -1,0 +1,20 @@
+.btn{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #6EEB83;
+    padding: 7px 18px;
+    border: 1px solid #6EEB83;
+    background-color: transparent;
+    border-radius: 20px;
+    margin-right: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    max-width: 150px;
+    &:hover{
+        border: 1px solid #349c45;
+        color: #349c45;
+        transition: all 0.3s ease;
+    }
+}

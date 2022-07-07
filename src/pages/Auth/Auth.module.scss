@@ -1,0 +1,91 @@
+.auth{
+    height: 100vh;
+    display: flex;
+    .auth__sign {
+        background: url('../../assets/Side-Background.png')no-repeat;
+        background-size: cover;
+        background-position: center;
+        max-width: 413px;
+        width: 100%;
+        >div{
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 80px;
+            color: #FFFFFF;
+            transform: rotate(-90deg);
+            position: relative;
+            top: 30%;
+        }
+    }
+    
+    .welcome {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .welcome__title {
+        font-weight: 400;
+        font-size: 48px;
+        line-height: 66px;
+        color: #FFFFFF;
+        margin-bottom: 44px;
+      }
+      .welcome__text {
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 30px;
+        color: #A5A5A5;
+      }
+    }
+    
+    .form{
+        display: flex;
+        flex-direction: column;
+        >input{
+            margin-bottom: 22px;
+        }
+    }
+
+    .submit {
+        display: flex;
+        justify-content: space-between;
+        .submit__text {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 25px;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            span{
+                color: #6EEB83;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .notification_success{
+        background-color: #6EEB83;
+    }
+    .notification_failed{
+        background-color: #FF5E5B;
+    }
+    .notification {
+        max-width: 364px;
+        max-height: 80px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 24px;
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        .notification__body {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            color: #000000;
+        }
+    }
+}

@@ -1,0 +1,82 @@
+.nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 3px solid #6EEB83;
+    .name{
+        background-color: #6EEB83;
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 40px;
+        color: #000000;
+        margin-top: 100px;
+        margin-bottom: 41px;
+        cursor: pointer;
+        &:hover{
+            background-color: #349c45;
+            transition: all 0.3s ease;
+        }
+    }
+
+    .search {
+        display: flex;
+        flex-direction: column;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #FFFFFF;
+        cursor: pointer;
+        &:hover{
+            *{
+                fill: #349c45;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+
+    .create{
+        display: flex;
+        flex-direction: column;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #FFFFFF;
+        cursor: pointer;
+        margin-top: 166px;
+        &:hover{
+            *{
+                fill: #349c45;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+
+    .logout{
+        margin-bottom: 41px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #FFFFFF;
+        transform: scale(0);
+        transition: all 0.5s ease;
+        &:hover{
+            *{
+                fill: #349c45;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+    .active{
+        transform: scale(1);
+        transition: all 0.5s ease;
+    }
+}
