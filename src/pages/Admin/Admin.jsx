@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import Navbar from '../../components/Navbar/Navbar'
 import { addBlogs } from '../../redux/blogSlice'
 import Button from '../../ui/Buttons/Button'
 import Input from '../../ui/Input/Input'
 import styles from './Admin.module.scss'
-import nextId from 'react-id-generator';
 import { useNavigate } from 'react-router-dom'
 import { BLOGS_ROUTE } from '../../utils/consts'
+import axios from 'axios'
 
 const Admin = () => {
   const [hashtags, setHashtags] = useState([])
@@ -22,25 +22,23 @@ const Admin = () => {
     day: 'numeric',
   })
 
-  const dispatch = useDispatch()
 
-  const addBlog = () => {
+  const addBlog = async() => {
     if(text && title && hashtags && creator){
-      dispatch(addBlogs({
+      return await axios.post('https://62d927f85d893b27b2df6bc6.mockapi.io/blogs',{
         title: title,
         text: text,
         hashtags: hashtags,
         creator: creator,
         month: date.toString(),
-        id: nextId()
-      }))
-      setText('')
-      setTitle('')
-      setHashtags([])
-      setCreator('')
-      navigate(BLOGS_ROUTE)
-    }else{
-      alert('Ошибка при создании поста')
+      }).catch((err) => alert('Ошибка при создании поста' + err))
+      .finally(() => {
+        setText('')
+        setTitle('')
+        setHashtags([])
+        setCreator('')
+        navigate(BLOGS_ROUTE)
+      });
     }
   }
 

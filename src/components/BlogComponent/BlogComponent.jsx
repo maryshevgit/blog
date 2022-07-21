@@ -1,16 +1,28 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from '../../pages/Blogs/Blogs.module.scss'
 
 const BlogComponent = ({query}) => {
-    const blogs = useSelector(state => state.blogs.blogs)
+    const [blogs, setBlogs] = useState([])
 
     const navigate = useNavigate()
 
     const search = (data) => {
         return data.filter((item) => item.title.toLowerCase().includes(query) || item.text.toLowerCase().includes(query))
     }
+
+    useEffect(() => {
+        const getBlogs = async() => {
+          return await axios.get('https://62d927f85d893b27b2df6bc6.mockapi.io/blogs')
+          .then(response => {
+            setBlogs(response.data)
+          })
+          .catch((err) => console.log(err))
+        }
+        getBlogs()
+      }, [])
+
 
   return (
     <div>
@@ -46,7 +58,6 @@ const BlogComponent = ({query}) => {
                 </div>
             </div>
         )}
-        
     </div>
   )
 }

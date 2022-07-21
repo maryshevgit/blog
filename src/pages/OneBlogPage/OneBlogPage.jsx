@@ -1,4 +1,5 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import {  useNavigate, useParams } from 'react-router-dom'
 import Button from '../../ui/Buttons/Button'
@@ -7,12 +8,20 @@ import styles from '../Blogs/Blogs.module.scss'
 const OneBlogPage = () => {
   const { blogId } = useParams()
   const navigate = useNavigate()
-  
-  const blog = useSelector(state =>
-    state.blogs.blogs.find(blog => blog.id === blogId)
-  )
+  const [blogs, setBlogs] = useState([])
+ 
+  useEffect(() => {
+    const getBlogs = async() => {
+      return await axios.get('https://62d927f85d893b27b2df6bc6.mockapi.io/blogs')
+      .then(response => {
+        setBlogs(response.data)
+      })
+      .catch((err) => console.log(err))
+    }
+    getBlogs()
+  }, [])
 
-  
+  const blog = (blogs.find(blog => blog.id === blogId))
 
   if (!blog) {
     return (

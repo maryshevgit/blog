@@ -36,12 +36,12 @@ const Navbar = ({handleSearch}) => {
         {name.charAt(0).toUpperCase()}
       </div>
       {isAuth ? 
-        <div className={`${styles.logout} ${active ? styles.active : ''}`}>
+        <div className={`${styles.logout} ${ styles.active}`}>
           <Logout onClick={logout} />
           <div style={{paddingTop: '6px'}}>logout</div>
         </div>
       :
-        <div className={`${styles.logout} ${active ? styles.active : ''}`}>
+        <div className={`${styles.logout} ${ styles.active }`}>
           <Login onClick={logout} />
           <div style={{paddingTop: '6px'}}>login</div>
         </div>
